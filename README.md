@@ -48,7 +48,7 @@ npm run dist
 ## 测试与复现
 
 - [tests/](tests/) 保存 `npm test` 使用的回归测试。
-- [validation/fixtures/](validation/fixtures/) 保存合成讲稿（TXT、Markdown）和三页测试幻灯片（PPTX）。用这些文件复现导入、滚动、翻页和共享隐藏。
+- [validation/fixtures/](validation/fixtures/) 提供合成讲稿（TXT、Markdown）。可搭配任意两页以上的测试幻灯片，复现导入、滚动、翻页和共享隐藏。
 - 本机验收记录保存在 `validation/RESULTS.md`，由 Git 忽略。公开兼容性结果记录在本 README。
 
 ## 许可证和上游
