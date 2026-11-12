@@ -1,0 +1,65 @@
+<!doctype html>
+<!--
+  Flow - A high-performance teleprompter for Windows.
+  Copyright (C) 2026 Waled Alturkmani (LumoRez07)
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="doc.teleprompterTitle">Flow Teleprompter</title>
+    <script type="module" src="./main.js" defer></script>
+  </head>
+
+  <body data-page="teleprompter">
+    <main class="teleprompter-app">
+      <div class="teleprompter-hover-trigger top-hover-trigger" aria-hidden="true"></div>
+      <div class="teleprompter-toolbar">
+        <button class="icon-button" id="inputButton" data-i18n-title="common.openTextPage" data-i18n-aria-label="common.openTextPage" title="Open text page" aria-label="Open text page"><i class="ph ph-article" aria-hidden="true"></i></button>
+        <button class="icon-button" id="settingsButton" data-i18n-title="common.openSettings" data-i18n-aria-label="common.openSettings" title="Open settings" aria-label="Open settings"><i class="ph ph-sliders-horizontal" aria-hidden="true"></i></button>
+        <button class="icon-button" id="closeAppButton" data-i18n-title="common.closeApp" data-i18n-aria-label="common.closeApp" title="Close app" aria-label="Close app"><i class="ph ph-x" aria-hidden="true"></i></button>
+      </div>
+
+      <div class="teleprompter-stage">
+        <div class="teleprompter-viewport" id="promptViewport" tabindex="0">
+          <div class="teleprompter-copy" id="promptText"></div>
+        </div>
+        <div class="drag-overlay hidden" id="dragOverlay">
+          <div class="drag-handle" data-tauri-drag-region>
+            <i class="ph ph-arrows-out-cardinal drag-icon" aria-hidden="true"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="teleprompter-footer" id="teleprompterFooter">
+        <div class="footer-row">
+          <div class="footer-meta" id="footerMeta">
+            <span id="progressLabel">Word 0 / 0</span>
+            <span id="statusLabel" data-i18n="tele.status.ready">Ready</span>
+          </div>
+          <div class="footer-actions">
+            <button class="icon-button pin-button-active hidden" id="pinButton" data-i18n-title="common.unpinWindow" data-i18n-aria-label="common.unpinWindow" title="Unpin window" aria-label="Unpin window"><i class="ph ph-push-pin" aria-hidden="true"></i></button>
+            <button class="collapse-toggle" id="collapseButton" data-i18n-title="common.collapse" data-i18n-aria-label="common.collapse" title="Collapse teleprompter" aria-label="Collapse teleprompter">
+              <i class="ph ph-caret-down" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <aside class="teleprompter-right-dock hidden" id="teleprompterRightDock" aria-label="Teleprompter Milestones">
+      <div class="right-dock-slot hidden" id="scriptCompletionCardSlot"></div>
+    </aside>
+
+    <aside class="teleprompter-bottom-dock hidden" id="teleprompterBottomDock" aria-label="Teleprompter Script Manager">
+      <div class="bottom-dock-slot hidden" id="scriptManagerCardSlot"></div>
+    </aside>
+
+  </body>
+</html>

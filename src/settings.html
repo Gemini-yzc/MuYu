@@ -1,0 +1,597 @@
+<!doctype html>
+<!--
+  Flow - A high-performance teleprompter for Windows.
+  Copyright (C) 2026 Waled Alturkmani (LumoRez07)
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="doc.settingsTitle">Flow · Settings</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="./settings.js" defer></script>
+  </head>
+  <body data-page="settings">
+    <main class="page-shell settings-shell">
+      <section class="panel-card settings-panel">
+        <div class="page-header">
+          <div>
+            <p class="page-kicker" data-i18n="settings.kicker">Settings</p>
+            <h1 data-i18n="settings.title">Live controls</h1>
+          </div>
+          <div class="page-actions">
+            <button class="mini-link" id="openTextButton" type="button"><span class="button-label-content"><i class="ph ph-note-pencil" aria-hidden="true"></i><span data-i18n="common.text">Text</span></span></button>
+            <button class="mini-link" id="closeWindowButton" type="button"><span class="button-label-content"><i class="ph ph-x" aria-hidden="true"></i><span data-i18n="common.close">Close</span></span></button>
+          </div>
+        </div>
+
+        <div class="settings-section-picker">
+          <div class="settings-section-picker-copy">
+            <p class="page-kicker" data-i18n="settings.section">Section</p>
+            <h2 class="settings-section-picker-title" data-i18n="settings.sectionTitle">Browse settings</h2>
+          </div>
+          <div class="choice-picker settings-section-select" id="settingsSectionPicker">
+            <select id="settingsSectionSelect" class="choice-select-native" aria-hidden="true" tabindex="-1">
+              <option value="appearance" data-i18n="settings.section.appearance">Appearance</option>
+              <option value="advanced-styling" data-i18n="settings.section.advancedStyling">Advanced styling</option>
+              <option value="positioning" data-i18n="settings.section.windowSettings">Window settings</option>
+              <option value="usability" data-i18n="settings.section.workflow">Workflow</option>
+              <option value="privacy" data-i18n="settings.section.privacy">Privacy & system</option>
+              <option value="updates" data-i18n="settings.section.updates">Updates</option>
+            </select>
+            <button class="choice-trigger" id="settingsSectionTrigger" type="button" aria-haspopup="listbox" aria-expanded="false" data-i18n-aria-label="settings.sectionTitle" aria-label="Browse settings sections">
+              <span class="choice-trigger-copy">
+                <span class="choice-trigger-label" id="settingsSectionTriggerLabel">Appearance</span>
+                <span class="choice-trigger-preview hidden" id="settingsSectionTriggerPreview"></span>
+              </span>
+              <i class="ph ph-caret-down choice-trigger-caret" aria-hidden="true"></i>
+            </button>
+            <div class="choice-menu hidden" id="settingsSectionMenu" role="listbox"></div>
+          </div>
+        </div>
+
+        <!-- 1. APPEARANCE -->
+        <div class="settings-group" data-settings-section="appearance">
+          <div>
+            <p class="page-kicker" data-i18n="settings.appearance">Appearance</p>
+            <h2 data-i18n="settings.appearanceTitle">Typography and visuals</h2>
+          </div>
+
+          <div class="settings-subgroup">
+            <div class="settings-subgroup-header">
+              <h3 class="settings-subgroup-title" data-i18n="settings.group.typography">Typography</h3>
+            </div>
+
+            <label class="field-label" for="languageSelect" data-i18n="common.language">Language</label>
+            <div class="language-picker" id="languagePicker">
+              <select id="languageSelect" class="language-select-native" aria-hidden="true" tabindex="-1">
+                <option value="en" data-i18n="language.en">English</option>
+                <option value="es" data-i18n="language.es">Spanish</option>
+                <option value="tr" data-i18n="language.tr">Turkish</option>
+                <option value="ar" data-i18n="language.ar">Arabic</option>
+                <option value="de" data-i18n="language.de">German</option>
+                <option value="fr" data-i18n="language.fr">French</option>
+                <option value="pt" data-i18n="language.pt">Portuguese</option>
+                <option value="fi" data-i18n="language.fi">Finnish</option>
+                <option value="zh-CN" data-i18n="language.zh-CN">简体中文</option>
+              </select>
+              <button class="language-trigger" id="languageTrigger" type="button" aria-haspopup="listbox" aria-expanded="false">
+                <span class="language-flag" id="languageTriggerFlag" data-flag="en" aria-hidden="true"></span>
+                <span class="language-trigger-label" id="languageTriggerLabel">English</span>
+                <i class="ph ph-caret-down language-trigger-caret" aria-hidden="true"></i>
+              </button>
+              <div class="language-menu hidden" id="languageMenu" role="listbox">
+                <button class="language-option" type="button" data-value="en" role="option">
+                  <span class="language-flag" data-flag="en" aria-hidden="true"></span>
+                  <span class="language-option-label" data-language-label="en">English</span>
+                </button>
+                <button class="language-option" type="button" data-value="es" role="option">
+                  <span class="language-flag" data-flag="es" aria-hidden="true"></span>
+                  <span class="language-option-label" data-language-label="es">Spanish</span>
+                </button>
+                <button class="language-option" type="button" data-value="tr" role="option">
+                  <span class="language-flag" data-flag="tr" aria-hidden="true"></span>
+                  <span class="language-option-label" data-language-label="tr">Turkish</span>
+                </button>
+                <button class="language-option" type="button" data-value="ar" role="option">
+                  <span class="language-flag" data-flag="ar" aria-hidden="true"></span>
+                  <span class="language-option-label" data-language-label="ar">Arabic</span>
+                </button>
+                <button class="language-option" type="button" data-value="de" role="option">
+                  <span class="language-flag" data-flag="de" aria-hidden="true"></span>
+                  <span class="language-option-label" data-language-label="de">German</span>
+                </button>
+                <button class="language-option" type="button" data-value="fr" role="option">
+                  <span class="language-flag" data-flag="fr" aria-hidden="true"></span>
+                  <span class="language-option-label" data-language-label="fr">French</span>
+                </button>
+                <button class="language-option" type="button" data-value="pt" role="option">
+                  <span class="language-flag" data-flag="pt" aria-hidden="true"></span>
+                  <span class="language-option-label" data-language-label="pt">Português</span>
+                </button>
+                <button class="language-option" type="button" data-value="fi" role="option">
+                  <span class="language-flag" data-flag="fi" aria-hidden="true"></span>
+                  <span class="language-option-label" data-language-label="fi">Suomi</span>
+                </button>
+                <button class="language-option" type="button" data-value="zh-CN" role="option">
+                  <span class="language-flag" data-flag="zh-CN" aria-hidden="true"></span>
+                  <span class="language-option-label" data-language-label="zh-CN">简体中文</span>
+                </button>
+              </div>
+            </div>
+
+            <label class="slider-field">
+              <span class="slider-header">
+                <span data-i18n="settings.textSize">Text size</span>
+                <span class="slider-value" id="textSizeValue">100%</span>
+              </span>
+              <input id="textSizeInput" class="slider-input" type="range" min="30" max="180" step="5" />
+            </label>
+          </div>
+
+          <div class="settings-subgroup">
+            <div class="settings-subgroup-header">
+              <h3 class="settings-subgroup-title" data-i18n="settings.group.visuals">Visuals</h3>
+            </div>
+
+            <div class="settings-grid appearance-grid">
+              <div class="choice-field">
+                <label class="field-label compact-field-label" for="styleSelect" data-i18n="settings.style">Style</label>
+                <div class="choice-picker" id="stylePicker">
+                  <select id="styleSelect" class="choice-select-native" aria-hidden="true" tabindex="-1">
+                    <option value="main" data-i18n="settings.style.main">Main</option>
+                    <option value="glass" data-i18n="settings.style.glass">Frosted glass</option>
+                    <option value="minimal" data-i18n="settings.style.minimal">Minimalist</option>
+                  </select>
+                  <button class="choice-trigger" id="styleTrigger" type="button" aria-haspopup="listbox" aria-expanded="false">
+                    <span class="choice-trigger-copy">
+                      <span class="choice-trigger-label" id="styleTriggerLabel">Main</span>
+                      <span class="choice-trigger-preview hidden" id="styleTriggerPreview"></span>
+                    </span>
+                    <i class="ph ph-caret-down choice-trigger-caret" aria-hidden="true"></i>
+                  </button>
+                  <div class="choice-menu hidden" id="styleMenu" role="listbox"></div>
+                </div>
+              </div>
+
+              <div class="choice-field">
+                <label class="field-label compact-field-label" for="themeSelect" data-i18n="settings.theme">Theme</label>
+                <div class="choice-picker" id="themePicker">
+                  <select id="themeSelect" class="choice-select-native" aria-hidden="true" tabindex="-1">
+                    <option value="main" data-i18n="settings.theme.main">Main</option>
+                    <option value="dark" data-i18n="settings.theme.dark">Dark</option>
+                    <option value="bright" data-i18n="settings.theme.bright">Bright</option>
+                    <option value="meadow" data-i18n="settings.theme.meadow">Yellow-green</option>
+                  </select>
+                  <button class="choice-trigger" id="themeTrigger" type="button" aria-haspopup="listbox" aria-expanded="false">
+                    <span class="choice-trigger-copy">
+                      <span class="choice-trigger-label" id="themeTriggerLabel">Main</span>
+                      <span class="choice-trigger-preview hidden" id="themeTriggerPreview"></span>
+                    </span>
+                    <i class="ph ph-caret-down choice-trigger-caret" aria-hidden="true"></i>
+                  </button>
+                  <div class="choice-menu hidden" id="themeMenu" role="listbox"></div>
+                </div>
+              </div>
+
+              <label>
+                <span data-i18n="settings.textColor">Text color</span>
+                <input id="textColorInput" class="page-input color-input" type="color" />
+              </label>
+            </div>
+
+            <label class="toggle-field" for="mirrorModeInput">
+              <span>
+                <span class="field-label inline-label" data-i18n="settings.mirrorMode">Mirror text horizontally</span>
+                <span class="helper-text toggle-help" data-i18n="settings.mirrorModeHelp">Flips the teleprompter side-to-side so the reflection reads correctly through a physical mirror.</span>
+              </span>
+              <input id="mirrorModeInput" class="toggle-input" type="checkbox" />
+            </label>
+
+            <label class="toggle-field" for="mirrorVerticalInput">
+              <span>
+                <span class="field-label inline-label" data-i18n="settings.mirrorVertical">Flip text upside down</span>
+                <span class="helper-text toggle-help" data-i18n="settings.mirrorVerticalHelp">Flips the teleprompter top-to-bottom so mirrored rigs can be mounted from either side.</span>
+              </span>
+              <input id="mirrorVerticalInput" class="toggle-input" type="checkbox" />
+            </label>
+
+            <div class="group-grid settings-subgroup-grid">
+              <label class="slider-field">
+                <span class="slider-header">
+                  <span data-i18n="settings.textTransparency">Text transparency</span>
+                  <span class="slider-value" id="textOpacityValue">88%</span>
+                </span>
+                <input id="textOpacityInput" class="slider-input" type="range" min="10" max="100" step="1" />
+              </label>
+
+              <label class="slider-field">
+                <span class="slider-header">
+                  <span data-i18n="settings.appTransparency">Teleprompter background opacity</span>
+                  <span class="slider-value" id="appOpacityValue">60%</span>
+                </span>
+                <input id="appOpacityInput" class="slider-input" type="range" min="0" max="100" step="1" />
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. ADVANCED STYLING -->
+        <div class="settings-group hidden" data-settings-section="advanced-styling">
+          <div>
+            <p class="page-kicker" data-i18n="settings.advancedStylingKicker">Visual Customization</p>
+            <h2 data-i18n="settings.advancedStylingTitle">App-wide styling & geometry</h2>
+          </div>
+
+          <div class="settings-subgroup">
+            <div class="settings-subgroup-header">
+              <h3 class="settings-subgroup-title" data-i18n="settings.group.geometry">Geometry & Glass</h3>
+            </div>
+
+            <div class="slider-field">
+              <div class="slider-header">
+                <label for="cornerRadiusInput" class="field-label" data-i18n="settings.cornerRadius">Window corner radius</label>
+                <div class="slider-header-actions">
+                  <span class="slider-value" id="cornerRadiusValue">24 px</span>
+                  <button class="setting-reset-btn" id="resetCornerRadiusBtn" type="button" aria-label="Reset window corner radius" title="Reset to default (24px)">
+                    <i class="ph ph-arrow-counter-clockwise" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+              <input id="cornerRadiusInput" class="slider-input" type="range" min="0" max="36" step="1" value="24" />
+            </div>
+
+            <div class="slider-field">
+              <div class="slider-header">
+                <label for="cardRadiusInput" class="field-label" data-i18n="settings.cardRadius">Cards & components radius</label>
+                <div class="slider-header-actions">
+                  <span class="slider-value" id="cardRadiusValue">14 px</span>
+                  <button class="setting-reset-btn" id="resetCardRadiusBtn" type="button" aria-label="Reset cards and components radius" title="Reset to default (14px)">
+                    <i class="ph ph-arrow-counter-clockwise" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+              <input id="cardRadiusInput" class="slider-input" type="range" min="0" max="24" step="1" value="14" />
+            </div>
+
+            <div class="slider-field">
+              <div class="slider-header">
+                <label for="borderWidthInput" class="field-label" data-i18n="settings.borderWidth">Border width & outline</label>
+                <div class="slider-header-actions">
+                  <span class="slider-value" id="borderWidthValue">1 px</span>
+                  <button class="setting-reset-btn" id="resetBorderWidthBtn" type="button" aria-label="Reset border width" title="Reset to default (1px)">
+                    <i class="ph ph-arrow-counter-clockwise" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+              <input id="borderWidthInput" class="slider-input" type="range" min="0" max="3" step="1" value="1" />
+            </div>
+
+            <div class="slider-field">
+              <div class="slider-header">
+                <label for="borderOpacityInput" class="field-label" data-i18n="settings.borderOpacity">Border opacity</label>
+                <div class="slider-header-actions">
+                  <span class="slider-value" id="borderOpacityValue">10%</span>
+                  <button class="setting-reset-btn" id="resetBorderOpacityBtn" type="button" aria-label="Reset border opacity" title="Reset to default (10%)">
+                    <i class="ph ph-arrow-counter-clockwise" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+              <input id="borderOpacityInput" class="slider-input" type="range" min="0" max="100" step="1" value="10" />
+            </div>
+
+            <div class="slider-field">
+              <div class="slider-header">
+                <label for="glassBlurInput" class="field-label" data-i18n="settings.glassBlur">Backdrop glass blur</label>
+                <div class="slider-header-actions">
+                  <span class="slider-value" id="glassBlurValue">28 px</span>
+                  <button class="setting-reset-btn" id="resetGlassBlurBtn" type="button" aria-label="Reset backdrop glass blur" title="Reset to default (28px)">
+                    <i class="ph ph-arrow-counter-clockwise" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+              <input id="glassBlurInput" class="slider-input" type="range" min="0" max="48" step="2" value="28" />
+            </div>
+
+            <div class="slider-field">
+              <div class="slider-header">
+                <label for="companionOpacityInput" class="field-label" data-i18n="settings.companionOpacity">Companion card opacity</label>
+                <div class="slider-header-actions">
+                  <span class="slider-value" id="companionOpacityValue">95%</span>
+                  <button class="setting-reset-btn" id="resetCompanionOpacityBtn" type="button" aria-label="Reset companion card opacity" title="Reset to default (95%)">
+                    <i class="ph ph-arrow-counter-clockwise" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+              <input id="companionOpacityInput" class="slider-input" type="range" min="15" max="100" step="1" value="95" />
+            </div>
+          </div>
+
+          <div class="settings-subgroup">
+            <div class="settings-subgroup-header">
+              <h3 class="settings-subgroup-title" data-i18n="settings.group.colors">Custom Color Palette</h3>
+            </div>
+
+            <div class="styling-color-grid">
+              <div class="styling-color-card">
+                <div class="styling-color-header">
+                  <label for="customAccentColorInput" class="field-label compact-field-label" data-i18n="settings.customAccent">Custom accent color</label>
+                  <button class="setting-reset-btn" id="resetCustomAccentBtn" type="button" aria-label="Reset custom accent color" title="Reset to default">
+                    <i class="ph ph-arrow-counter-clockwise" aria-hidden="true"></i>
+                  </button>
+                </div>
+                <div class="styling-color-inline">
+                  <input id="customAccentColorInput" class="styling-color-native" type="color" value="#818cf8" aria-label="Custom accent color picker" />
+                  <input id="customAccentColorHex" class="styling-color-hex" type="text" placeholder="#818CF8" maxlength="7" spellcheck="false" />
+                </div>
+                <p class="helper-text toggle-help" data-i18n="settings.customAccentHelp">Override the primary glow and button accent color.</p>
+              </div>
+
+              <div class="styling-color-card">
+                <div class="styling-color-header">
+                  <label for="customHighlightColorInput" class="field-label compact-field-label" data-i18n="settings.customHighlight">Active word highlight</label>
+                  <button class="setting-reset-btn" id="resetCustomHighlightBtn" type="button" aria-label="Reset active word highlight color" title="Reset to default">
+                    <i class="ph ph-arrow-counter-clockwise" aria-hidden="true"></i>
+                  </button>
+                </div>
+                <div class="styling-color-inline">
+                  <input id="customHighlightColorInput" class="styling-color-native" type="color" value="#facc15" aria-label="Active word highlight color picker" />
+                  <input id="customHighlightColorHex" class="styling-color-hex" type="text" placeholder="#FACC15" maxlength="7" spellcheck="false" />
+                </div>
+                <p class="helper-text toggle-help" data-i18n="settings.customHighlightHelp">Custom highlight color used when following reading positions.</p>
+              </div>
+            </div>
+
+            <div class="styling-reset-row">
+              <button id="resetStylingButton" class="styling-reset-full-btn" type="button">
+                <i class="ph ph-arrow-counter-clockwise" aria-hidden="true"></i>
+                <span data-i18n="settings.resetStyling">Reset all styling to defaults</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. POSITIONING / WINDOW SETTINGS -->
+        <div class="settings-group hidden" data-settings-section="positioning">
+          <div>
+            <p class="page-kicker" data-i18n="settings.windowSettings">Window settings</p>
+            <h2 data-i18n="settings.windowSettingsTitle">Positioning and size</h2>
+          </div>
+
+          <div class="settings-subgroup">
+            <div class="settings-subgroup-header">
+              <h3 class="settings-subgroup-title" data-i18n="settings.positioning">Positioning</h3>
+            </div>
+
+            <label class="field-label" for="presetSelect" data-i18n="settings.windowLocation">Window location</label>
+            <div class="choice-picker" id="presetPicker">
+              <select id="presetSelect" class="choice-select-native" aria-hidden="true" tabindex="-1">
+                <option value="top-center" data-i18n="settings.topCenter">Top center</option>
+                <option value="center" data-i18n="settings.center">Center</option>
+                <option value="custom" data-i18n="settings.custom">Custom x / y</option>
+                <option value="drag" data-i18n="settings.drag">Free drag</option>
+              </select>
+              <button class="choice-trigger" id="presetTrigger" type="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="presetTriggerLabel">
+                <span class="choice-trigger-copy">
+                  <span class="choice-trigger-label" id="presetTriggerLabel">Top center</span>
+                  <span class="choice-trigger-preview hidden" id="presetTriggerPreview"></span>
+                </span>
+                <i class="ph ph-caret-down choice-trigger-caret" aria-hidden="true"></i>
+              </button>
+              <div class="choice-menu hidden" id="presetMenu" role="listbox"></div>
+            </div>
+
+            <div class="group-grid">
+              <label class="slider-field">
+                <span class="slider-header">
+                  <span data-i18n="settings.x">X</span>
+                  <span class="slider-value" id="xValue">0 px</span>
+                </span>
+                <input id="xInput" class="slider-input" type="range" step="1" />
+              </label>
+
+              <label class="slider-field">
+                <span class="slider-header">
+                  <span data-i18n="settings.y">Y</span>
+                  <span class="slider-value" id="yValue">0 px</span>
+                </span>
+                <input id="yInput" class="slider-input" type="range" step="1" />
+              </label>
+            </div>
+          </div>
+
+          <div class="settings-subgroup">
+            <div class="settings-subgroup-header">
+              <h3 class="settings-subgroup-title" data-i18n="settings.group.windowSize">Window size</h3>
+            </div>
+            <div class="group-grid settings-subgroup-grid">
+              <label class="slider-field">
+                <span class="slider-header">
+                  <span data-i18n="settings.width">Width</span>
+                  <span class="slider-value" id="widthValue">1280 px</span>
+                </span>
+                <input id="widthInput" class="slider-input" type="range" min="400" step="10" />
+              </label>
+
+              <label class="slider-field">
+                <span class="slider-header">
+                  <span data-i18n="settings.height">Height</span>
+                  <span class="slider-value" id="heightValue">260 px</span>
+                </span>
+                <input id="heightInput" class="slider-input" type="range" min="200" step="10" />
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-group hidden" data-settings-section="usability">
+          <div>
+            <p class="page-kicker" data-i18n="settings.workflow">Workflow</p>
+            <h2 data-i18n="settings.workflowTitle">Workflow & shortcuts</h2>
+          </div>
+
+          <div class="settings-subgroup">
+            <div class="settings-subgroup-header">
+              <h3 class="settings-subgroup-title" data-i18n="settings.group.companionDocks">Companion docks</h3>
+            </div>
+
+            <label class="toggle-field" for="showScriptManagerInput">
+              <span>
+                <span class="field-label inline-label" data-i18n="settings.showScriptManager">Script library</span>
+                <span class="helper-text toggle-help" data-i18n="settings.showScriptManagerHelp">Enables a bottom dock to search, save, and switch scripts without leaving the teleprompter.</span>
+              </span>
+              <input id="showScriptManagerInput" class="toggle-input" type="checkbox" />
+            </label>
+
+            <label class="toggle-field" for="showScriptCompletionInput">
+              <span>
+                <span class="field-label inline-label" data-i18n="settings.showScriptCompletion">Section navigator</span>
+                <span class="helper-text toggle-help" data-i18n="settings.showScriptCompletionHelp">Displays an interactive section outline on the right to jump between topics and track progress live.</span>
+              </span>
+              <input id="showScriptCompletionInput" class="toggle-input" type="checkbox" />
+            </label>
+          </div>
+
+          <div class="settings-subgroup">
+            <div class="settings-subgroup-header">
+              <h3 class="settings-subgroup-title" data-i18n="settings.group.shortcuts">Keyboard shortcuts</h3>
+            </div>
+
+            <label class="toggle-field" for="clickthroughShortcutInput">
+              <span>
+                <span class="field-label inline-label" data-i18n="settings.clickthroughShortcut">Clickthrough mode shortcut</span>
+                <span class="helper-text toggle-help" data-i18n="settings.clickthroughShortcutHelp">Lets you toggle clickthrough mode with Ctrl + Shift + X.</span>
+              </span>
+              <input id="clickthroughShortcutInput" class="toggle-input" type="checkbox" />
+            </label>
+
+            <div class="shortcut-list" data-i18n-aria-label="settings.shortcuts" aria-label="Keyboard shortcut overview">
+              <div class="shortcut-row">
+                <span data-i18n="settings.shortcutReset">Reset to start</span>
+                <kbd class="shortcut-key">Home</kbd>
+              </div>
+              <div class="shortcut-row">
+                <span data-i18n="settings.shortcutBackward">Scroll backward</span>
+                <kbd class="shortcut-key" data-i18n="settings.shortcutBackwardValue">Page Up</kbd>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. PRIVACY & SYSTEM -->
+        <div class="settings-group hidden" data-settings-section="privacy">
+          <div>
+            <p class="page-kicker" data-i18n="settings.privacy">Privacy & system</p>
+            <h2 data-i18n="settings.desktopBehavior">Desktop behavior</h2>
+          </div>
+
+          <label class="toggle-field" for="autoHideToolbarInput">
+            <div>
+              <span class="field-label inline-label" data-i18n="settings.autoHideToolbar">Auto-hide top bar</span>
+              <span class="helper-text toggle-help" data-i18n="settings.autoHideToolbarHelp">Reveal the toolbar when hovering over the teleprompter.</span>
+            </div>
+            <input id="autoHideToolbarInput" class="toggle-input" type="checkbox" />
+            <span class="toggle-switch" aria-hidden="true"></span>
+          </label>
+
+          <label class="toggle-field" for="performanceModeInput">
+            <span>
+              <span class="field-label inline-label" data-i18n="settings.performance">Performance mode</span>
+              <span class="helper-text toggle-help" data-i18n="settings.performanceHelp">Disables UI animations and forces normal scrolling for smoother performance.</span>
+            </span>
+            <input id="performanceModeInput" class="toggle-input" type="checkbox" />
+          </label>
+
+          <label class="toggle-field" for="hideFromCaptureInput">
+            <span>
+              <span class="field-label inline-label" data-i18n="settings.hideFromCapture">Invisible in screen capture</span>
+              <span class="helper-text toggle-help" data-i18n="settings.hideFromCaptureHelp">Keeps Flow out of screenshots and screen recordings on supported Windows systems.</span>
+              <span class="helper-text" id="captureProtectionStatus" role="status" hidden></span>
+            </span>
+            <input id="hideFromCaptureInput" class="toggle-input" type="checkbox" />
+          </label>
+
+          <label class="toggle-field" for="useSystemTrayInput">
+            <span>
+              <span class="field-label inline-label" data-i18n="settings.systemTray">Use system tray icon</span>
+              <span class="helper-text toggle-help" data-i18n="settings.systemTrayHelp">When enabled, Flow hides from the taskbar and stays available from the system tray. When disabled, Flow appears on the taskbar.</span>
+            </span>
+            <input id="useSystemTrayInput" class="toggle-input" type="checkbox" />
+          </label>
+
+          <label class="toggle-field" for="preventSleepInput">
+            <span>
+              <span class="field-label inline-label" data-i18n="settings.preventSleep">Prevent sleep mode</span>
+              <span class="helper-text toggle-help" data-i18n="settings.preventSleepHelp">Keeps the display and system awake while Flow is running.</span>
+            </span>
+            <input id="preventSleepInput" class="toggle-input" type="checkbox" />
+          </label>
+        </div>
+
+        <!-- 9. UPDATES -->
+        <div class="settings-group hidden" data-settings-section="updates">
+          <div>
+            <p class="page-kicker" data-i18n="settings.updates">Updates</p>
+            <h2 data-i18n="settings.updaterTitle">App updates</h2>
+          </div>
+
+          <div class="settings-subgroup">
+            <div class="settings-subgroup-header">
+              <h3 class="settings-subgroup-title" data-i18n="settings.updaterChannelTitle">Installed build</h3>
+              <div class="page-actions">
+                <button class="secondary-action compact-action" id="updaterCheckButton" type="button" data-i18n="settings.updaterCheckAction">Check and update</button>
+              </div>
+            </div>
+
+            <div class="remote-session-grid">
+              <div class="remote-session-card">
+                <span class="remote-session-label" data-i18n="settings.updaterCurrentVersion">Current version</span>
+                <div class="remote-session-row">
+                  <span class="remote-session-value" id="updaterCurrentVersion" data-i18n="common.loading">Loading…</span>
+                </div>
+              </div>
+
+              <div class="remote-session-card">
+                <span class="remote-session-label" data-i18n="settings.updaterAvailableVersion">Available version</span>
+                <div class="remote-session-row">
+                  <span class="remote-session-value" id="updaterAvailableVersion" data-i18n="settings.updaterNotChecked">Not checked yet</span>
+                </div>
+              </div>
+
+              <div class="remote-session-card">
+                <span class="remote-session-label" data-i18n="settings.updaterPublishedAt">Published</span>
+                <div class="remote-session-row">
+                  <span class="remote-session-value" id="updaterPublishedAt" data-i18n="settings.updaterNoDate">Not published yet</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="remote-status-line">
+              <span class="status-pill" id="updaterStatusBadge" data-i18n="settings.updaterStatusIdle">Ready</span>
+              <span class="helper-text remote-status-text" id="updaterStatusText" data-i18n="settings.updaterIdle">Check Flow's signed release feed for a newer build.</span>
+            </div>
+
+            <div class="voice-model-progress hidden" id="updaterProgress" aria-live="polite">
+              <div class="voice-model-progress-bar" aria-hidden="true">
+                <span id="updaterProgressFill"></span>
+              </div>
+              <div class="voice-model-progress-meta">
+                <span id="updaterProgressLabel">0%</span>
+                <span id="updaterProgressStats" data-i18n="settings.updaterProgressIdle">Waiting to start</span>
+              </div>
+            </div>
+
+            <p class="helper-text" id="updaterReleaseNotes" data-i18n="settings.updaterNoNotes">Release notes appear here when an update is found.</p>
+          </div>
+        </div>
+
+        <div class="helper-text" id="windowStatus" data-i18n="settings.autoApply">Changes apply automatically as you move sliders or pick a setting.</div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<!--
+  Flow - A high-performance teleprompter for Windows.
+  Copyright (C) 2026 Waled Alturkmani (LumoRez07)
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="doc.aboutTitle">Flow · About</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="./about.js" defer></script>
+  </head>
+  <body data-page="about">
+    <main class="page-shell settings-shell">
+      <section class="panel-card wide-card">
+        <div class="page-header">
+          <div>
+            <p class="page-kicker" data-i18n="about.kicker">About</p>
+            <h1 data-i18n="about.title">About this project</h1>
+          </div>
+          <div class="page-actions">
+            <button class="mini-link" id="openSettingsButton" type="button"><span class="button-label-content"><i class="ph ph-sliders-horizontal" aria-hidden="true"></i><span data-i18n="common.settings">Settings</span></span></button>
+            <button class="mini-link" id="closeWindowButton" type="button"><span class="button-label-content"><i class="ph ph-x" aria-hidden="true"></i><span data-i18n="common.close">Close</span></span></button>
+          </div>
+        </div>
+
+        <div class="about-hero">
+          <img class="about-logo" src="./assets/flow-logo.png" alt="" />
+          <div class="about-hero-copy">
+            <span class="about-version">MuYu 0.2.5</span>
+            <p class="about-summary" data-i18n="about.summary">Import, edit, and scroll scripts in a floating Windows window.</p>
+          </div>
+        </div>
+
+        <div class="about-copy">
+          <p data-i18n-html="about.p1">
+            Flow is a teleprompter app built with web technologies and Tauri. It's designed to be simple, lightweight, and customizable.
+          </p>
+          <p data-i18n-html="about.p2">
+            This project is open source and available on my <a href="https://github.com/LumoRez07">GitHub account</a>. if you have any questions, suggestions, or want to contribute, feel free to reach out or open an issue.
+          </p>
+          <p data-i18n-html="about.p3">
+            This project was made by <a href="https://lumorez.vercel.app/">LumoRez</a> with ❤️ in 2026.
+          </p>
+          <p data-i18n-html="about.p4">
+            Flow includes script editing, multiple playback modes, voice tracking, AI-assisted drafting, remote notifications, tray controls, and Windows-first privacy options like capture protection.
+          </p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
