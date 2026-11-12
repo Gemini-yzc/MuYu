@@ -6,11 +6,12 @@
 
 当前版本为 **0.2.5**，支持 Windows 10 2004 或更新版本（x64）。便携包需要 Microsoft Edge WebView2 运行时，使用者无需安装开发工具。
 
-1. 获取 `MuYu-0.2.5-windows-x64-portable.zip` 和 `SHA256SUMS.txt`。从源码构建时，两者位于 `dist/`。
-2. 解压 `MuYu-0.2.5-windows-x64-portable.zip`，双击 `MuYu.exe`。
-3. 在主界面单击「打开讲稿编辑器」并导入文件。「编辑原文」显示原始内容，「格式预览」渲染 Markdown 标题、粗体和列表等标记。DOCX 和 PDF 通过文本提取导入，效果取决于文件内容。
-4. 将鼠标放在讲稿上滚动。也可以聚焦提词窗，按方向键、`Page Up`、`Page Down` 或 `Home`。要翻幻灯片时，单击演示窗口。
-5. 要透过提词窗看 PPT，在「设置 → 外观 → 提词窗背景不透明度」调低百分比。`0%` 为透明，文字大小和文字不透明度可以分别调整。
+[下载 EXE](https://github.com/Gemini-yzc/MuYu/releases/download/v0.2.5/MuYu.exe) · [下载便携 ZIP](https://github.com/Gemini-yzc/MuYu/releases/download/v0.2.5/MuYu-0.2.5-windows-x64-portable.zip) · [SHA256 校验](https://github.com/Gemini-yzc/MuYu/releases/download/v0.2.5/SHA256SUMS.txt) · [版本说明与对应源码](https://github.com/Gemini-yzc/MuYu/releases/tag/v0.2.5)
+
+1. 双击下载的 `MuYu.exe`。如果下载的是便携 ZIP，先解压再双击里面的 `MuYu.exe`。ZIP 同时包含许可证和第三方声明。
+2. 在主界面单击「打开讲稿编辑器」并导入文件。「编辑原文」显示原始内容，「格式预览」渲染 Markdown 标题、粗体和列表等标记。DOCX 和 PDF 通过文本提取导入，效果取决于文件内容。
+3. 将鼠标放在讲稿上滚动。也可以聚焦提词窗，按方向键、`Page Up`、`Page Down` 或 `Home`。要翻幻灯片时，单击演示窗口。
+4. 要透过提词窗看 PPT，在「设置 → 外观 → 提词窗背景不透明度」调低百分比。`0%` 为透明，文字大小和文字不透明度可以分别调整。
 
 初次启动使用简体中文，也可以在设置里选择其他语言。界面语言只影响界面文字和字体选用，讲稿内容会保持原文。
 
